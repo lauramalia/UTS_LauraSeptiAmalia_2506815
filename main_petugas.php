@@ -16,6 +16,9 @@ if (
 $nama = $_SESSION['nama'] ?? 'Pengguna';
 $role = $_SESSION['role'];
 
+// Status pesan setelah simpan / update / hapus.
+$status = $_GET['status'] ?? '';
+
 // Menghitung total tambak.
 $sql_tambak = mysqli_query(
     $koneksi,
@@ -45,6 +48,7 @@ $query_terbaru = mysqli_query(
     $koneksi,
     "SELECT
         ma.id_monitoring,
+        ma.id_user,
         ma.tanggal,
         t.nama_tambak,
         ma.suhu,
@@ -114,6 +118,11 @@ if (!$query_terbaru) {
 
     <!-- KONTEN DASHBOARD -->
     <div class="container-fluid px-3 px-md-4 py-4">
+
+        <!-- PESAN STATUS -->
+        <?php if ($status === 'sukses') { ?>
+            <div class="alert alert-success">Data monitoring berhasil disimpan!</div>
+        <?php } ?>
 
         <!-- SAPAAN -->
         <div class="p-4 p-md-5 mb-4"
@@ -253,6 +262,13 @@ if (!$query_terbaru) {
                                     Input Monitoring
                                 </a>
 
+                                <a href="data_monitoring.php"
+                                   class="btn btn-sm btn-outline-primary fw-semibold ms-1"
+                                   style="border-radius:7px;">
+                                    <i class="bi bi-table me-1"></i>
+                                    Kelola Semua Data
+                                </a>
+
                             </div>
                         </div>
                     </div>
@@ -294,6 +310,7 @@ if (!$query_terbaru) {
                                 <th class="py-3">Salinitas (ppt)</th>
                                 <th class="py-3">Oksigen (mg/L)</th>
                                 <th class="py-3">Petugas</th>
+                                <th class="py-3">Aksi</th>
                             </tr>
                         </thead>
 
@@ -325,6 +342,17 @@ if (!$query_terbaru) {
 
                                         <td><?= htmlspecialchars($m['nama_petugas']) ?></td>
 
+                                        <td>
+                                            <?php if ((int) $m['id_user'] === (int) $_SESSION['id_user']) { ?>
+                                                <a href="update.php?id=<?= $m['id_monitoring'] ?>" 
+                                                class="btn btn-warning btn-sm">Edit</a>
+                                                <a href="delete.php?id=<?= (int) $m['id_monitoring'] ?>"
+                                                class="btn btn-danger btn-sm">Delete</a>
+                                            <?php } else { ?>
+                                                <span class="text-secondary small">-</span>
+                                            <?php } ?>
+                                        </td>
+
                                     </tr>
 
                                 <?php } ?>
@@ -332,7 +360,7 @@ if (!$query_terbaru) {
                             <?php } else { ?>
 
                                 <tr>
-                                    <td colspan="7" class="text-center py-5 text-secondary">
+                                    <td colspan="8" class="text-center py-5 text-secondary">
                                         <i class="bi bi-inbox d-block mb-2"
                                            style="font-size:35px;"></i>
                                         Belum ada data monitoring yang tersimpan.
