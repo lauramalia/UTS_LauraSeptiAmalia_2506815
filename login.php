@@ -22,55 +22,53 @@ if (isset($_SESSION['id_user'], $_SESSION['role'])) {
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
-<body style="min-height:100vh; margin:0; font-family:'Segoe UI', Arial, sans-serif; background:#F3F8FD;">
 
-    <div class="container-fluid p-2" style="min-height:100vh;">
+<body style="min-height:100vh; margin:0; font-family:'Segoe UI', Arial, sans-serif; background:linear-gradient(rgba(225,241,255,0.80),rgba(225,241,255,0.85)),url('tambak.jpg') center center/cover no-repeat; color:#0B315B;">
 
-        <div class="row g-0 h-100" style="min-height:calc(100vh - 16px);">
+    <div class="container-fluid p-3" style="min-height:100vh;">
 
-            <!-- BAGIAN KIRI: FOTO DAN IDENTITAS TAMBAKCARE -->
-            <div class="col-lg-6 d-flex align-items-center justify-content-center text-center"
-                 style="position:relative; min-height:350px; padding:40px; background:linear-gradient(rgba(225,241,255,0.40),rgba(225,241,255,0.20)),url('tambak.jpg') center center/cover no-repeat; border:1px solid #D6E4F2; border-radius:6px 0 0 6px;">
+        <div class="d-flex flex-column align-items-center justify-content-center"
+             style="min-height:calc(100vh - 24px); gap:24px;">
 
-                <div style="max-width:480px;">
+            <!-- BAGIAN LOGO DAN IDENTITAS TAMBAKCARE -->
+            <div class="text-center"
+                 style="width:100%; max-width:650px; padding:0 20px;">
 
-                    <div class="mb-3" style="font-size:65px; color:#1675D1;">
-                        <i class="bi bi-water"></i>
-                    </div>
-
-                    <h1 class="fw-bold mb-3"
-                        style="font-size:clamp(36px,4vw,52px); letter-spacing:-1.8px; color:#0B315B;">
-                        Tambak<span style="color:#1687A8;">Care</span>
-                    </h1>
-
-                    <h5 class="fw-bold mb-3"
-                        style="font-size:17px; line-height:1.5; color:#082747;">
-                        Pantau Kualitas Air, Jaga Kesehatan Ikan
-                    </h5>
-
-                    <p class="mb-0"
-                       style="font-size:14px; line-height:1.8; color:#082747;">
-                        Sistem monitoring kualitas air tambak ikan bandeng
-                        untuk budidaya yang lebih optimal.
-                    </p>
-
+                <div class="mb-2" style="font-size:60px; line-height:1.2; color:#1675D1;">
+                    <i class="bi bi-water"></i>
                 </div>
+
+                <h1 class="fw-bold mb-3"
+                    style="font-size:clamp(36px,4vw,52px); letter-spacing:-1.8px; color:#0B315B;">
+                    Tambak<span style="color:#1687A8;">Care</span>
+                </h1>
+
+                <h5 class="fw-bold mb-2"
+                    style="font-size:17px; line-height:1.5; color:#082747;">
+                    Pantau Kualitas Air, Jaga Kesehatan Ikan
+                </h5>
+
+                <p class="mb-0"
+                   style="max-width:500px; margin:0 auto; font-size:14px; line-height:1.8; color:#456789;">
+                    Sistem monitoring kualitas air tambak ikan bandeng
+                    untuk budidaya yang lebih optimal.
+                </p>
 
             </div>
 
 
-            <!-- BAGIAN KANAN: FORM LOGIN -->
-            <div class="col-lg-6 d-flex align-items-center justify-content-center"
-                 style="padding:40px 24px; background:linear-gradient(135deg,#FFFFFF 0%,#F8FBFE 100%); border:1px solid #D6E4F2; border-left:none; border-radius:0 6px 6px 0;">
+            <!-- BAGIAN FORM LOGIN -->
+            <div style="width:100%; max-width:460px; padding:0 10px;">
 
                 <div class="card border-0 p-4 p-md-5"
-                     style="width:100%; max-width:390px; border-radius:9px; background:#FFFFFF; border:1px solid #D6E4F2 !important; box-shadow:0 8px 25px rgba(11,49,91,0.06);">
+                     style="width:100%; border-radius:12px; background:rgba(255,255,255,0.96); border:1px solid #D6E4F2 !important; box-shadow:0 10px 35px rgba(11,49,91,0.09);">
 
 
+                    <!-- JUDUL FORM LOGIN -->
                     <div class="text-center mb-4">
 
                         <h3 class="fw-bold mb-2"
-                            style="font-size:23px; color:#0B315B;">
+                            style="font-size:25px; color:#0B315B;">
                             Welcome Back
                         </h3>
 
@@ -87,7 +85,7 @@ if (isset($_SESSION['id_user'], $_SESSION['role'])) {
                         <!-- USERNAME -->
                         <div class="mb-3">
 
-                            <label for="id_akun" class="form-label fw-semibold"
+                            <label for="username" class="form-label fw-semibold"
                                    style="font-size:13px; color:#0B315B;">
                                 Username
                             </label>
@@ -95,7 +93,7 @@ if (isset($_SESSION['id_user'], $_SESSION['role'])) {
                             <div class="input-group">
 
                                 <span class="input-group-text"
-                                      style="color:#0B315B; background:#FFFFFF; border:1px solid #D6E4F2; border-radius:6px 0 0 6px;">
+                                      style="min-width:45px; justify-content:center; color:#0B315B; background:#FFFFFF; border:1px solid #D6E4F2; border-radius:6px 0 0 6px;">
                                     <i class="bi bi-person"></i>
                                 </span>
 
@@ -106,7 +104,7 @@ if (isset($_SESSION['id_user'], $_SESSION['role'])) {
                                     name="username"
                                     placeholder="Enter username"
                                     autocomplete="username"
-                                    style="padding:12px; font-size:13px; color:#0B315B; border:1px solid #D6E4F2; border-radius:0 6px 6px 0;"
+                                    style="min-width:0; padding:12px; font-size:13px; color:#0B315B; border:1px solid #D6E4F2; border-radius:0 6px 6px 0; box-shadow:none;"
                                     required>
 
                             </div>
@@ -125,7 +123,7 @@ if (isset($_SESSION['id_user'], $_SESSION['role'])) {
                             <div class="input-group">
 
                                 <span class="input-group-text"
-                                      style="color:#0B315B; background:#FFFFFF; border:1px solid #D6E4F2; border-radius:6px 0 0 6px;">
+                                      style="min-width:45px; justify-content:center; color:#0B315B; background:#FFFFFF; border:1px solid #D6E4F2; border-radius:6px 0 0 6px;">
                                     <i class="bi bi-lock"></i>
                                 </span>
 
@@ -136,7 +134,7 @@ if (isset($_SESSION['id_user'], $_SESSION['role'])) {
                                     name="password"
                                     placeholder="Enter password"
                                     autocomplete="current-password"
-                                    style="padding:12px; font-size:13px; color:#0B315B; border:1px solid #D6E4F2; border-radius:0;"
+                                    style="min-width:0; padding:12px; font-size:13px; color:#0B315B; border:1px solid #D6E4F2; border-radius:0; box-shadow:none;"
                                     required>
 
                                 <button
@@ -145,7 +143,9 @@ if (isset($_SESSION['id_user'], $_SESSION['role'])) {
                                     id="togglePassword"
                                     aria-label="Tampilkan password"
                                     style="cursor:pointer; color:#0B315B; background:#FFFFFF; border:1px solid #D6E4F2; border-radius:0 6px 6px 0;">
+
                                     <i class="bi bi-eye" id="eyeIcon"></i>
+
                                 </button>
 
                             </div>
@@ -159,7 +159,7 @@ if (isset($_SESSION['id_user'], $_SESSION['role'])) {
                             <button
                                 type="submit"
                                 class="btn fw-semibold text-white"
-                                style="padding:12px 16px; border:1px solid #1675D1; border-radius:6px; background:#1675D1; font-size:14px;">
+                                style="padding:12px 16px; border:1px solid #1675D1; border-radius:6px; background:#1675D1; font-size:14px; transition:all 0.2s ease;">
 
                                 Login
                                 <i class="bi bi-arrow-right ms-2"></i>
@@ -171,6 +171,7 @@ if (isset($_SESSION['id_user'], $_SESSION['role'])) {
                     </form>
 
 
+                    <!-- FOOTER LOGIN -->
                     <div class="text-center mt-4"
                          style="font-size:12px; color:#607B99;">
                         Sistem Monitoring Kualitas Air Tambak
@@ -183,8 +184,5 @@ if (isset($_SESSION['id_user'], $_SESSION['role'])) {
         </div>
 
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
